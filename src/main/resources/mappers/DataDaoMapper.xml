@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.autoadd.dao.DataDao">
+
+    <sql id="colums">
+        time, b001, b003, b010, b011, b015, b060, bA00, bA01, bA02, bA03, bA04, bA05, bA06, bA07, bA08, bA09, bA10, bA11, bA12, bA13, bA14, bA15, bA16
+    </sql>
+
+    <insert id="savebuoy" parameterType="buoy">
+        insert into buoy(<include refid="colums"></include>)
+        values (#{bTime},#{b001},#{b003},#{b010},#{b011},#{b015},#{b060},#{bA00},#{bA01},#{bA02}
+        ,#{bA03},#{bA04},#{bA05},#{bA06},#{bA07},#{bA08},#{bA09},#{bA10},
+        #{bA11},#{bA12},#{bA13},#{bA14},#{bA15},#{bA16});
+    </insert>
+
+    <insert id="savestat" parameterType="stat">
+        insert into station(S1, S2, S3, S4, S5, S6, S7, S8, S9, time)
+        values (#{s1},#{s2},#{s3},#{s4},#{s5},#{s6},#{s7}
+        ,#{s8},#{s9},#{sTime});
+    </insert>
+
+    <insert id="saveviru" parameterType="viru">
+        insert into virulence(viru, time)
+        values (#{vVirus},#{vTime});
+    </insert>
+</mapper>
